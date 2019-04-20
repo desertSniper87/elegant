@@ -1,5 +1,5 @@
 {% macro comments(article) %}
-    {% if DISQUS_SITENAME and SITEURL and article.status != 'draft' %}
+    {% if DISQUS_SITENAME and SITEURL and article.status != 'draft' and article.comments != 'False' %}
 <section>
 {% if article.comments_intro %}
 <p id="comment-message">{{ article.comments_intro }} </p>
@@ -16,7 +16,8 @@
                 {% if article.disqus_identifier %}
                     data-disqus-identifier="{{ article.disqus_identifier }}"
                 {% endif %}
-                href="{{ SITEURL }}/{{ article.url }}#disqus_thread">
+                href="{{ SITEURL }}/{{ article.url }}#disqus_thread",
+                id="disqus-accordion-toggle">
                 Comments
             </a>
         </div>
@@ -40,4 +41,3 @@
         {{ disqus_misc_scripts() }}
     {% endif %}
 {% endmacro %}
-
