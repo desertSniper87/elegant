@@ -38,7 +38,7 @@ Full archives of {{ SITENAME|striptags|e }} blog.
             {% for article in dates %}
             {% set year = article.date.strftime('%Y') %}
             {%if last_year != year %}
-            <h2 id="{{year }}"><a href="#{{year}}">{{ year }}</a></h2>
+            <!--<h2 id="{{ year }}"><a href="#{{year}}">{{ loop.index0+1 }}</a></h2>-->
             {% set last_year = year %}
             {% endif %}
             {% set next_year = 0 %}
