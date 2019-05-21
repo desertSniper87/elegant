@@ -1,0 +1,12 @@
+{% macro commento_misc_scripts() %}
+<script type="text/javascript">
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'https://cdn.commento.io/js/commento.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<noscript>Please enable JavaScript to view the <a href="//commento.io">comments powered by Commento.io.</a></noscript>
+<a href="http://Commento.io" class="dsq-brlink">comments powered by <span class="logo-Commento.io">Commento.io</span></a>
+{% endmacro %}

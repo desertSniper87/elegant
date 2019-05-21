@@ -33,11 +33,22 @@
 </div>
 </section>
     {% endif %}
+{% if COMMENTO_SITENAME and SITEURL and article.status != 'draft' and article.comments != 'False' %}
+<section>
+    <div id="commento"></div>
+</section>
+{% endif %}
+
 {% endmacro %}
 
 {% macro comments_script(article) %}
     {% if DISQUS_SITENAME and SITEURL and article.status != 'draft' %}
         {% from '_includes/disqus_scripts.html' import disqus_misc_scripts with context %}
         {{ disqus_misc_scripts() }}
+    {% endif %}
+
+    {% if COMMENTO_SITENAME and SITEURL and article.status != 'draft' %}
+        {% from '_includes/commento_scripts.html' import commento_misc_scripts with context %}
+        {{ commento_misc_scripts() }}
     {% endif %}
 {% endmacro %}
